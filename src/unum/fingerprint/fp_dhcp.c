@@ -18,10 +18,10 @@
 
 
 /* Temporary, log to console from here */
-//#undef LOG_DST
-//#undef LOG_DBG_DST
-//#define LOG_DST LOG_DST_CONSOLE
-//#define LOG_DBG_DST LOG_DST_CONSOLE
+#undef LOG_DST
+#undef LOG_DBG_DST
+#define LOG_DST LOG_DST_CONSOLE
+#define LOG_DBG_DST LOG_DST_CONSOLE
 
 
 #ifdef DEBUG
@@ -255,6 +255,14 @@ static void dhcp_rcv_cb(TPCAP_IF_t *tpif,
                   __func__, MAC_PRINTF_ARG_TPL(ehdr->h_source));
         return;
     }
+
+    // WARNING: (lmower 24.06.2019)
+    // Remove this function as it goes directly against the advise in the
+    // comment to not log within this function. This is only being done for
+    // the purpose of validating a custom build.
+    log("%s: DHCP header offer address - " IP_PRINTF_ARG_TPL "",
+                  __func__, IP_PRINTF_ARG_TPL(dhdr->oaddr));
+
     memcpy(fpd->blob, dhdr->options, size);
     fpd->blob_len = size;
 
