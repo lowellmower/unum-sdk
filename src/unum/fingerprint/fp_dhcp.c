@@ -18,18 +18,18 @@
 
 
 /* Temporary, log to console from here */
-#undef LOG_DST
-#undef LOG_DBG_DST
-#define LOG_DST LOG_DST_CONSOLE
-#define LOG_DBG_DST LOG_DST_CONSOLE
+// #undef LOG_DST
+// #undef LOG_DBG_DST
+// #define LOG_DST LOG_DST_CONSOLE
+// #define LOG_DBG_DST LOG_DST_CONSOLE
 
 
-#ifdef DEBUG
+// #ifdef DEBUG
 #define DPRINTF(args...) ((tpcap_test_param.int_val == TPCAP_TEST_FP_JSON) ? \
                           (printf(args)) : 0)
-#else  // DEBUG
-#define DPRINTF(args...) /* Nothing */
-#endif // DEBUG
+// #else  // DEBUG
+// #define DPRINTF(args...) /* Nothing */
+// #endif // DEBUG
 
 
 // DHCP packet header (followed by options)
@@ -260,7 +260,7 @@ static void dhcp_rcv_cb(TPCAP_IF_t *tpif,
     // Remove this function as it goes directly against the advise in the
     // comment to not log within this function. This is only being done for
     // the purpose of validating a custom build.
-    log("%s: DHCP header offer address - " IP_PRINTF_ARG_TPL "",
+    DPRINTF("%s: DHCP header offer address - " IP_PRINTF_ARG_TPL "",
                   __func__, IP_PRINTF_ARG_TPL(dhdr->oaddr));
 
     memcpy(fpd->blob, dhdr->options, size);
