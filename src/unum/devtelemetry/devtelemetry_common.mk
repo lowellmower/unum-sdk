@@ -19,9 +19,10 @@ CPPFLAGS += -I$(UNUM_PATH)/devtelemetry/$(MODEL)
 
 # Add code file(s)
 OBJECTS += \
-  ./devtelemetry/dt_collector.o  \
-  ./devtelemetry/dns_collector.o \
-  ./devtelemetry/dt_sender.o     \
+  ./devtelemetry/dt_collector.o   \
+  ./devtelemetry/dns_collector.o  \
+  ./devtelemetry/dhcp_collector.o \
+  ./devtelemetry/dt_sender.o      \
   ./devtelemetry/dt_stubs.o
 
 # Add subsystem initializer function
