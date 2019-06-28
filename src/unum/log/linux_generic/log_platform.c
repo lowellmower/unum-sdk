@@ -32,6 +32,9 @@ LOG_CONFIG_t log_cfg[] = {
 [LOG_DST_MONITOR] = {LOG_FLAG_FILE | LOG_FLAG_MUTEX | LOG_FLAG_INIT_MSG,
                      UTIL_MUTEX_INITIALIZER,
                      LOG_PATH_PREFIX "/monitor.log", 32*1024, 48*1024, 1},
+[LOG_DST_DHCP   ] = {LOG_FLAG_FILE | LOG_FLAG_MUTEX | LOG_FLAG_INIT_MSG,
+                     UTIL_MUTEX_INITIALIZER,
+                     LOG_PATH_PREFIX "/dhcp.log", 32*1024, 48*1024, 1},
 #ifdef DEBUG
 [LOG_DST_DEBUG  ] = {LOG_FLAG_FILE | LOG_FLAG_MUTEX | LOG_FLAG_INIT_MSG,
                      UTIL_MUTEX_INITIALIZER,

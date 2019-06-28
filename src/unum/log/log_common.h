@@ -41,6 +41,7 @@ typedef enum {
     LOG_DST_UNUM,    // generic agent logging to a file
     LOG_DST_HTTP,    // HTTP req/rsp logging to a file
     LOG_DST_MONITOR, // monitor process logging to a file
+    LOG_DST_DHCP,    // DHCP logging output
 #ifdef FW_UPDATER_OPMODE
     LOG_DST_UPDATE,  // firmware updater process, file
     LOG_DST_UPDATE_MONITOR, // updater monitor, file
