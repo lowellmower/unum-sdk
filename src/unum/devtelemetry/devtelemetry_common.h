@@ -76,6 +76,15 @@ DT_TABLE_STATS_t *dt_dns_ip_tbl_stats(int reset);
 // Pass TRUE to reset the table (allows to get data and reset in one call)
 DT_TABLE_STATS_t *dt_dev_tbl_stats(int reset);
 
+// INCOMPLETE: (lmower 20190628)
+// Currently only a mechanism to be used as a callback for logging
+// DHCP offer packets. Should time allow, the same pattern of using
+// tables would be applied to DHCP information and report on things
+// such whether more than one DHCP server is issuing IPs on the lan
+// This will ultimately be defined like the other, e.g.
+// DT_TABLE_STATS_t *dt_dhcp_tbl_stats(int reset);
+void dt_dhcp_tbl_stats(void);
+
 // Returns pointer to the connections table stats.
 // Use from the tpcap callbacks only.
 // Subsequent calls override the data.
@@ -92,6 +101,13 @@ int dt_sender_start(void);
 
 // DNS info collector init function
 int dt_dns_collector_init(void);
+
+// INCOMPLETE: (lmower 20190628)
+// This function currently only logs to a file but should be modified
+// to collect and ship DHCP table information just as the other collect
+// functions do. Rename to dt_dhcp_collector_init() when complete.
+// DHCP info collector init function
+int dt_dhcp_init(void);
 
 // Device info collector init function
 // Returns: 0 - if successful
