@@ -784,6 +784,22 @@ int dt_main_collector_init(void)
 // with the next set of data.
 int devtelemetry_init(int level)
 {
+
+    // INCOMPLETE: (lmower 20199628)
+    // For the moment, this merely adds a PKT_PROC_ENTRY_t with a filter to
+    // examine UDP packets originating from port 67 destined for port 68 e.g.
+    // DHCP offer packets. Currently logs to a file at /var/log/dhcp.log for
+    // purposes of debugging but this should not be done during implementation
+    // and instead should parse relevant packet information into DT_DHCP_t
+    // which currently resides as FP_DHCP_t and should be moved.
+    // TODO:
+    // - Move FP_DHCP_t to DT_DHCP_t
+    // - Parse offer packet info into table
+    // - Rename dt_dhcp_init to dt_dhcp_collector_init
+    //   and move into init level telemetry block below
+    // Add DHCP offer packet process entry
+    dt_dhcp_init();
+
     if(level == INIT_LEVEL_DEVTELEMETRY)
     {
         // Initialize the device info collector
