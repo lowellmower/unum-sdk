@@ -679,6 +679,13 @@ static void stats_ready_cb(TPCAP_IF_STATS_t *st)
         // Reset main telemetry tables
         dt_reset_dev_tables();
 
+        // TODO: (lmower 20190628)
+        // Upon the implementation of collecting DHCP information
+        // via tables (commit a0618c4 for reference) uncomment this
+        // to include the DHCP table during resets.
+        // Reset DHCP tables
+        // dt_reset_dhcp_tables();
+
         // Reset fingerprinting tables (since we send them with
         // the devices telemetry have to do it here)
         fp_reset_tables();
