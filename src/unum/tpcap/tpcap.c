@@ -673,6 +673,10 @@ int tpcap_test(int test_mode)
                    __func__);
             return -2;
         }
+
+        // TODO: (lmower 20190628)
+        // Add test case for dt_dhcp_init()
+
         // For the dev telemetry main table tests we now need to add
         // festats (IP fast forwarding engine stats) subsystem init.
         // It's only available for some subsystems.
